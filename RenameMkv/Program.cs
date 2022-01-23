@@ -26,13 +26,7 @@ namespace RenameMkv
                 return;
             }
             var filelist = new List<string>();
-            var rl =
-                @"\\gen\d\Library.Movies\Desperately Seeking Susan (1985)\Desperately Seeking Susan (1985) 1080p AC3.mkv"
-            ;
-            rl =
-                @"\\gen\d\Library.Movies\Desperately Seeking Susan (1985)\*.mkv";
-
-            rl = args[0];
+            var rl = args[0];
             if (rl.Contains("?") || rl.Contains("*"))
             {
                 var pattern = Path.GetFileName(rl);
@@ -64,10 +58,10 @@ namespace RenameMkv
                 var targetFileName = Path.Combine(Path.GetDirectoryName(fileToProcess), newname);
                 tfile.Dispose();
                 tfile = null;
-                
+
                 try
                 {
-                    if(!File.Exists(targetFileName)) File.Move(fileToProcess, targetFileName);
+                    if (!File.Exists(targetFileName)) File.Move(fileToProcess, targetFileName);
                 }
                 catch (Exception ex)
                 {
